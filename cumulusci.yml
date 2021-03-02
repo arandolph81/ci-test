@@ -1,0 +1,25 @@
+minimum_cumulusci_version: '3.29.0'
+project:
+    name: ci-test
+    package:
+        name: ci-test
+        api_version: '50.0'
+    git:
+        default_branch: 'dev'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/ci-test/tests
+            options:
+                outputdir: robot/ci-test/results
+
+    robot_testdoc:
+        options:
+            path: robot/ci-test/tests
+            output: robot/ci-test/doc/ci-test_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
